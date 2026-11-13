@@ -44,8 +44,10 @@ def chat_json(
     last_error: Optional[Exception] = None
     for attempt in range(max_retries + 1):
         prompt = user if attempt == 0 else (
-            user + "\n\nYour previous reply was not valid for the required schema. "
-            "Return ONLY one valid JSON object that follows the schema exactly."
+            user + "\n\nYour previous reply was rejected by schema validation: "
+            f"{str(last_error)[:600]}\n"
+            "Return ONLY one valid JSON object that follows the schema exactly, using the exact allowed strings "
+            "(for example causal_direction must be exactly 'Positive (+)', 'Negative (-)' or 'No Significant Effect (0)')."
         )
         response = client.chat.completions.create(
             model=model,
@@ -58,6 +60,72 @@ def chat_json(
         except Exception as exc:  # JSONDecodeError, pydantic ValidationError, ...
             last_error = exc
     raise ValueError(f"Model returned invalid output after {max_retries + 1} attempts: {last_error}")
+
+
+# ----------------------------------------------------------------------------------------
+# Tolerant normalisation of enum-like fields (models often answer '-' instead of 'Negative (-)')
+# ----------------------------------------------------------------------------------------
+def _canon_direction(value: Any) -> Any:
+    t = str(value).strip().lower()
+    if t.startswith("no ") or t in {"0", "none", "null", "neutral", "nil"}:
+        return "No Significant Effect (0)"
+    if t.startswith("pos") or t in {"+", "plus", "increase", "increases", "increasing"}:
+        return "Positive (+)"
+    if t.startswith("neg") or t in {"-", "\u2212", "\u2013", "minus", "decrease", "decreases", "decreasing"}:
+        return "Negative (-)"
+    return value
+
+
+def _canon_mechanism(value: Any) -> Any:
+    t = str(value).strip().lower()
+    if "observ" in t or "correl" in t:
+        return "Observational / Correlational"
+    if "mechanis" in t or "hypothes" in t:
+        return "Mechanistic Hypothesis"
+    if "causal" in t or "experiment" in t:
+        return "Causal / Experimental"
+    return value
+
+
+def _canon_uncertainty(value: Any) -> Any:
+    t = str(value).strip().lower()
+    if t.startswith("low"):
+        return "Low"
+    if t.startswith(("mod", "med", "mid")):
+        return "Moderate"
+    if t.startswith("high"):
+        return "High"
+    return value
+
+
+def normalize_extraction(data: Dict[str, Any]) -> Dict[str, Any]:
+    """Map common spelling variants onto the schema's exact strings. Unknown values are left
+    untouched so that genuinely wrong output still fails validation (and triggers the retry)."""
+    out = dict(data)
+    edges = out.get("causal_edges")
+    if isinstance(edges, list):
+        fixed = []
+        for edge in edges:
+            if not isinstance(edge, dict):
+                fixed.append(edge)
+                continue
+            e = dict(edge)
+            if "causal_direction" in e:
+                e["causal_direction"] = _canon_direction(e["causal_direction"])
+            if "mechanism_type" in e:
+                e["mechanism_type"] = _canon_mechanism(e["mechanism_type"])
+            if "uncertainty_level" in e:
+                e["uncertainty_level"] = _canon_uncertainty(e["uncertainty_level"])
+            ctx = e.get("context")
+            if isinstance(ctx, dict):
+                ctx = dict(ctx)
+                for key in ("water_temperature", "flow_velocity", "habitat_structure"):
+                    if ctx.get(key) in (None, ""):
+                        ctx[key] = "Unspecified"
+                e["context"] = ctx
+            fixed.append(e)
+        out["causal_edges"] = fixed
+    return out
 
 
 # ----------------------------------------------------------------------------------------
@@ -101,6 +169,7 @@ You MUST return ONLY valid JSON strictly adhering to this exact schema:
 }
 
 CRITICAL RULES:
+0. Enum fields must use the EXACT strings shown in the schema, never abbreviations. For example causal_direction is "Negative (-)", never "-".
 1. Extract between 3 and 5 distinct causal_edges that capture both the invasive species impact AND the protective/restoration boundary conditions. Extract only links that the text states; never add links from background knowledge.
 2. Keep cause_variable and effect_variable concise (2 to 5 words) so nodes connect cleanly in a Directed Acyclic Graph (DAG).
 3. provenance_quote MUST be copied character for character from the provided text. Do not paraphrase, shorten with ellipses, or merge sentences. If no sentence supports a link, do not output that link.
@@ -172,7 +241,7 @@ def run_extraction(
     )
 
     def _validate_core(data: Dict[str, Any]) -> Dict[str, Any]:
-        data = {**data, "paper_id": paper_id, "paper_title": paper_title}  # never trust echoed ids
+        data = {**normalize_extraction(data), "paper_id": paper_id, "paper_title": paper_title}  # never trust echoed ids
         return ExtractionCore.model_validate(data).model_dump()
 
     core = chat_json(client, model_name, EXTRACTION_SYSTEM_PROMPT, user_prompt, 0.1, _validate_core)
