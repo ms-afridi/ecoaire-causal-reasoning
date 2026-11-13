@@ -1,0 +1,57 @@
+[
+  {
+    "id": "PAPER_01",
+    "short_tag": "Paper 1: Riprap Banks & Round Goby Invasion",
+    "title": "Artificial riprap bank stabilization facilitates Ponto-Caspian round goby (Neogobius melanostomus) dominance over native benthic fishes under low-flow regimes",
+    "authors": "Synthetic abstract",
+    "year": 2026,
+    "journal": "Synthetic illustrative abstract (not a real publication)",
+    "doi": "synthetic-01 (no DOI)",
+    "hypothesis_badge": "Habitat Facilitation & Enemy Release",
+    "abstract_text": "Riverbank stabilization using artificial riprap boulders is widespread across European waterways. In a comparative field and mesocosm study across 18 river reaches, we tested the Habitat Facilitation Hypothesis regarding the invasive Ponto-Caspian round goby (Neogobius melanostomus). We found that artificial riprap crevices significantly increased juvenile round goby survival and local density by 340% compared to natural gravel-sand banks (p < 0.001). High round goby density subsequently caused a severe decline in native bullhead (Cottus gobio) abundance through shelter competition and egg predation. However, this negative causal effect on native bullhead was strongly moderated by hydrological flow velocity and thermal regime: round goby dominance occurred exclusively in lentic or low-flow reaches (< 0.25 m/s) where summer water temperatures exceeded 18.5°C. In high-flow riffles (> 0.65 m/s) with natural cobble substrate and cooler thermal regimes (< 15°C), native Cottus gobio maintained competitive dominance and round goby establishment failed."
+  },
+  {
+    "id": "PAPER_02",
+    "short_tag": "Paper 2: Thermal Thresholds & Crayfish Plague",
+    "title": "Thermal warming amplifies invasive signal crayfish (Pacifastacus leniusculus) foraging pressure and Aphanomyces astaci transmission in restored headwater streams",
+    "authors": "Synthetic abstract",
+    "year": 2026,
+    "journal": "Synthetic illustrative abstract (not a real publication)",
+    "doi": "synthetic-02 (no DOI)",
+    "hypothesis_badge": "Thermal Match-Mismatch Hypothesis",
+    "abstract_text": "Climate-driven warming threatens cold-adapted native freshwater taxa by shifting competitive asymmetries toward thermophilic invaders. Here we evaluate the Thermal Match-Mismatch Hypothesis in Central European streams co-inhabited by the invasive North American signal crayfish (Pacifastacus leniusculus) and the endangered native noble crayfish (Astacus astacus). Controlled flume experiments coupled with 6-year field monitoring revealed that elevated summer water temperatures (> 19°C) increased P. leniusculus per-capita predatory consumption of benthic macroinvertebrates by 62% (p = 0.004) and accelerated shredded leaf-litter depletion. Furthermore, asymptomatic carrier populations of P. leniusculus triggered acute crayfish plague (Aphanomyces astaci) outbreaks in sympatric A. astacus populations, driving local native extirpation within 14 months. Crucially, in shaded forested headwaters where riparian canopy restoration kept maximum water temperatures below 14.5°C and dissolved oxygen high (> 9 mg/L), P. leniusculus metabolic scope and upstream dispersal rates dropped significantly, allowing native A. astacus refugia to persist despite downstream invader presence."
+  },
+  {
+    "id": "PAPER_03",
+    "short_tag": "Paper 3: Zebra Mussel Filtration & Macrophyte Shifts",
+    "title": "Context-dependent ecosystem engineering by invasive dreissenid mussels: Turbidity and nutrient loading dictate pelagic-benthic coupling shifts",
+    "authors": "Synthetic abstract",
+    "year": 2026,
+    "journal": "Synthetic illustrative abstract (not a real publication)",
+    "doi": "synthetic-03 (no DOI)",
+    "hypothesis_badge": "Alternative Stable States Hypothesis",
+    "abstract_text": "Invasive zebra mussels (Dreissena polymorpha) act as potent ecosystem engineers in temperate lakes and slow-flowing lowland rivers. Synthesizing multi-decadal observations across 32 European freshwater basins, we tested whether D. polymorpha invasion universally induces a clear-water state dominated by submerged macrophytes. We demonstrate that high D. polymorpha filtration rates strongly reduce phytoplankton biomass and suspended particulate matter, thereby increasing Secchi water clarity by 1.8 meters on average and stimulating submerged macrophyte colonization. Paradoxically, under high external phosphorus loading (> 85 µg/L TP) and elevated summer stratification temperatures (> 21°C), selective rejection of unpalatable colonial cyanobacteria (Microcystis aeruginosa) by zebra mussels promoted toxic harmful algal blooms rather than macrophyte recovery. Additionally, where inorganic suspended sediment turbidity remained high due to agricultural runoff (> 35 NTU) and soft mud substrates prevented byssal attachment, D. polymorpha filtration efficiency collapsed and no benthic light shift occurred."
+  },
+  {
+    "id": "PAPER_04",
+    "short_tag": "Paper 4: Dam Removal & Biotic Resistance",
+    "title": "Hydrological connectivity restoration via small dam removal restores native rheophilic fish assemblages and biotic resistance against non-native cyprinids",
+    "authors": "Synthetic abstract",
+    "year": 2026,
+    "journal": "Synthetic illustrative abstract (not a real publication)",
+    "doi": "synthetic-04 (no DOI)",
+    "hypothesis_badge": "Biotic Resistance & Connectivity Hypothesis",
+    "abstract_text": "Weir and small dam removals are increasingly implemented to restore longitudinal river connectivity, yet managers fear barrier removal may accelerate upstream spread of invasive species. We evaluated the Biotic Resistance Hypothesis across 12 barrier-removal restoration sites in German lowland and piedmont rivers over four years using before-after-control-impact (BACI) sampling. Prior to dam removal, impounded lentic reservoirs behind weirs (flow velocity < 0.1 m/s, fine silt deposition, elevated summer temperature > 20°C) acted as stepping-stone source habitats for invasive topmouth gudgeon (Pseudorasbora parva) and non-native gibel carp (Carassius gibelio). Removing low-head barriers restored free-flowing lotic hydrology (flow velocity 0.45–0.85 m/s), flushed fine organic silt to expose coarse gravel spawning beds, and re-established native rheophilic predators including European chub (Squalius cephalus) and Eurasian perch (Perca fluviatilis). Rather than facilitating upstream invasion, restored lotic flow regimes and native predator recovery reduced invasive P. parva density by 78% (p < 0.001), confirming that hydrological habitat restoration strengthens biotic resistance."
+  },
+  {
+    "id": "PAPER_05",
+    "short_tag": "Paper 5: Amphipod Replacement & Salinity Stress",
+    "title": "Interactive effects of salinization and riparian warming govern intraguild predation between invasive Dikerogammarus villosus and native Gammarus fossarum",
+    "authors": "Synthetic abstract",
+    "year": 2026,
+    "journal": "Synthetic illustrative abstract (not a real publication)",
+    "doi": "synthetic-05 (no DOI)",
+    "hypothesis_badge": "Environmental Stress-Gradient Hypothesis",
+    "abstract_text": "The Ponto-Caspian 'killer shrimp' (Dikerogammarus villosus) has rapidly replaced native amphipod shredders across interconnected European river corridors, altering detritus processing. Testing the Environmental Stress-Gradient Hypothesis in factorial microcosms and field gradients, we examined how secondary salinization (electrical conductivity) and water temperature modulate intraguild predation by D. villosus on native Gammarus fossarum. In high-conductivity lowland channels (conductivity > 650 µS/cm) with warm summer regimes (18–22°C), D. villosus exhibited aggressive intraguild predation, eliminating 85% of native G. fossarum within 72 hours and reducing coarse leaf-litter breakdown efficiency by 41%. Conversely, in low-conductivity silicate headwater streams (conductivity < 180 µS/cm, calcium < 12 mg/L) and cool water temperatures (< 13°C), D. villosus suffered severe osmoregulatory stress during molting, reducing its predatory attack rate by 74% and preventing invasion into undisturbed upper catchments."
+  }
+]
