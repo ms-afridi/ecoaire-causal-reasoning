@@ -1,6 +1,6 @@
 # EcoAIRE-Lite: provenance-aware causal extraction and intervention reasoning for ecology text
 
-A small research prototype built for my application to the TIB Hannover doctoral position
+A small research prototype 
 *NLP and Causal AI for Scientific Reasoning* (EcoAIRE project, Ref. 44/2026).
 It shows how I would approach the first layer of the project: turning ecological findings into
 structured, provenance-grounded, machine-actionable representations, and reasoning about how a
